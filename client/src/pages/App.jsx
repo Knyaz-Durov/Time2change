@@ -10,8 +10,8 @@ function App() {
 	const titlesForDisplay = ["Калории", "Белок", "Жиры", "Углеводы"]
 	const [isOpen, setIsOpen] = useState(false)
 
-	const handleOpen = () => {
-		setIsOpen(true)
+	const handleOpen = com => {
+		setIsOpen(com)
 	}
 
 	const handleClose = () => {
@@ -23,7 +23,7 @@ function App() {
 			<div className='content'>
 				<div className='content__container'>
 					{isOpen ? (
-						<InteractModal handleClose={handleClose} />
+						<InteractModal handleClose={handleClose} isOpen={isOpen} />
 					) : (
 						<>
 							<h1>Сегодня употреблено:</h1>

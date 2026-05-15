@@ -1,4 +1,3 @@
-import UserButton from "../UserButton/UserButton"
 import { NavLink } from "react-router"
 import "./Header.css"
 
@@ -9,7 +8,7 @@ const Header = () => {
 				<NavLink className='logo' to='/'>
 					Главная
 				</NavLink>
-				<UserButton />
+				<div className='profile-button'></div>
 			</div>
 		</header>
 	)

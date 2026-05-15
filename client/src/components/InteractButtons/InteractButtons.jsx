@@ -7,10 +7,10 @@ const InteractButtons = ({ handleClose, handleOpen }) => {
 	return (
 		<>
 			<div className='interact_buttons'>
-				<button className='cancel-button' onClick={handleClose}>
+				<button className='cancel-button' onClick={() => handleOpen("list")}>
 					Список добавленных
 				</button>
-				<button className='add-button' onClick={handleOpen}>
+				<button className='add-button' onClick={() => handleOpen("add")}>
 					Добавить
 				</button>
 			</div>
