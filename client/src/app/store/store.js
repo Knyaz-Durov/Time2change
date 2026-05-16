@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-import mainStore from "../features/main.slice"
+import macrosStore from "../features/macros.slice"
 
 export const store = configureStore({
 	reducer: {
-		store: mainStore,
+		macrosStore: macrosStore,
 	},
 })

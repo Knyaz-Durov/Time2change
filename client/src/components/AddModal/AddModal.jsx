@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addValue } from "../../app/features/main.slice"
+import { addValue } from "../../app/features/macros.slice"
 
 const AddModal = ({ handleClose }) => {
 	const dispatch = useDispatch()

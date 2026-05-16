@@ -6,7 +6,7 @@ import AddButton from "../components/InteractButtons/InteractButtons.jsx"
 import InteractButtons from "../components/InteractButtons/InteractButtons.jsx"
 import InteractModal from "../components/InteractModal/InteractModal.jsx"
 
-function App() {
+const Home = () => {
 	const titlesForDisplay = ["Калории", "Белок", "Жиры", "Углеводы"]
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -19,27 +19,19 @@ function App() {
 	}
 	return (
 		<>
-			<Header />
-			<div className='content'>
-				<div className='content__container'>
-					{isOpen ? (
-						<InteractModal handleClose={handleClose} isOpen={isOpen} />
-					) : (
-						<>
-							<h1>Сегодня употреблено:</h1>
-							{titlesForDisplay.map(title => (
-								<Display key={title} title={title} />
-							))}
-							<InteractButtons
-								handleOpen={handleOpen}
-								handleClose={handleClose}
-							/>
-						</>
-					)}
-				</div>
-			</div>
+			{isOpen ? (
+				<InteractModal handleClose={handleClose} isOpen={isOpen} />
+			) : (
+				<>
+					<h1>Сегодня употреблено:</h1>
+					{titlesForDisplay.map(title => (
+						<Display key={title} title={title} />
+					))}
+					<InteractButtons handleOpen={handleOpen} handleClose={handleClose} />
+				</>
+			)}
 		</>
 	)
 }
 
-export default App
+export default Home

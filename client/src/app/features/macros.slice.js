@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
-const store = {
+const macrosInitialState = {
 	Калории: 0,
 	Белок: 0,
 	Жиры: 0,
 	Углеводы: 0,
 }
-const mainSlice = createSlice({
-	name: "store",
-	initialState: store,
+const macrosSlice = createSlice({
+	name: "macrosStore",
+	initialState: macrosInitialState,
 	reducers: {
 		addValue: (state, actions) => {
 			for (let key in actions.payload) {
@@ -17,5 +17,5 @@ const mainSlice = createSlice({
 	},
 })
 
-export const { addValue } = mainSlice.actions
-export default mainSlice.reducer
+export const { addValue } = macrosSlice.actions
+export default macrosSlice.reducer

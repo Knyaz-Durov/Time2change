@@ -8,7 +8,7 @@ const Header = () => {
 				<NavLink className='logo' to='/'>
 					Главная
 				</NavLink>
-				<div className='profile-button'></div>
+				<NavLink to='/profile' className='profile-button' />
 			</div>
 		</header>
 	)

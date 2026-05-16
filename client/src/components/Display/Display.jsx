@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import "./display.css"
 
 const Display = ({ title }) => {
-	const store = useSelector(state => state.store)
+	const store = useSelector(state => state.macrosStore)
 	const dispatch = useDispatch()
 
 	return (
