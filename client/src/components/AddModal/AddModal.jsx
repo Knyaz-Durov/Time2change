@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addValue } from "../../app/features/macros.slice"
+import { addDish } from "../../app/features/listOfDishes.slice"
 
 const AddModal = ({ handleClose }) => {
 	const dispatch = useDispatch()
@@ -12,6 +13,7 @@ const AddModal = ({ handleClose }) => {
 	})
 	const handleAdd = () => {
 		dispatch(addValue(initialState))
+		dispatch(addDish(initialState))
 		handleClose()
 	}
 	const handleChange = e => {
