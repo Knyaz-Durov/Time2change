@@ -5,51 +5,58 @@ import { addDish } from "../../app/features/listOfDishes.slice"
 
 const AddModal = ({ handleClose }) => {
 	const dispatch = useDispatch()
-	const [initialState, setInitialState] = useState({
+	const [nameOfDish, setNameOfDish] = useState("")
+	const [macrosOfDish, setMacrosOfDish] = useState({
 		Калории: "",
 		Белок: "",
 		Жиры: "",
 		Углеводы: "",
 	})
 	const handleAdd = () => {
-		dispatch(addValue(initialState))
-		dispatch(addDish(initialState))
+		dispatch(addValue(macrosOfDish))
+		dispatch(addDish([nameOfDish, macrosOfDish]))
 		handleClose()
 	}
 	const handleChange = e => {
 		const { name, value } = e.target
-		setInitialState(prev => ({ ...prev, [name]: value }))
+		setMacrosOfDish(prev => ({ ...prev, [name]: value }))
 	}
 	return (
 		<>
 			<h2>Добавить значения</h2>
-
+			<input
+				name='Название'
+				type='text'
+				placeholder='Название'
+				value={nameOfDish}
+				onChange={e => setNameOfDish(e.target.value)}
+			/>
 			<input
 				name='Калории'
 				type='number'
 				placeholder='Калории'
-				value={initialState.Калории}
+				value={macrosOfDish.Калории}
 				onChange={handleChange}
 			/>
 			<input
 				name='Белок'
 				type='number'
 				placeholder='Белок'
-				value={initialState.Белок}
+				value={macrosOfDish.Белок}
 				onChange={handleChange}
 			/>
 			<input
 				name='Жиры'
 				type='number'
 				placeholder='Жиры'
-				value={initialState.Жиры}
+				value={macrosOfDish.Жиры}
 				onChange={handleChange}
 			/>
 			<input
 				name='Углеводы'
 				type='number'
 				placeholder='Углеводы'
-				value={initialState.Углеводы}
+				value={macrosOfDish.Углеводы}
 				onChange={handleChange}
 			/>
 
