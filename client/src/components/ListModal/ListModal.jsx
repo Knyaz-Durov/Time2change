@@ -1,12 +1,15 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import ListItem from "./ListItem"
 
-const ListModal = () => {
-	const store = useSelector(state => state.listOfDishesStore)
-	console.log(store)
+const ListModal = ({ isOpen, onClose }) => {
+	const dishes = useSelector(state => state.listOfDishesStore)
+	const dispatch = useDispatch()
+
+	// console.log(dishes)
 	return (
 		<>
-			{store.map(a => {
-				return <h1>{a.Калории}</h1>
+			{dishes.map((dish, i) => {
+				return <ListItem dish={dish} i={++i} key={i} />
 			})}
 		</>
 	)

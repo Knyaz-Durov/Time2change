@@ -19,7 +19,12 @@ const AddModal = ({ handleClose }) => {
 	}
 	const handleChange = e => {
 		const { name, value } = e.target
-		setMacrosOfDish(prev => ({ ...prev, [name]: value }))
+		setMacrosOfDish(prev => {
+			if (name == "Калории" && value.length > 4) return prev
+			if (name != "Название" && value.length > 3 && name != "Калории")
+				return prev
+			return { ...prev, [name]: value }
+		})
 	}
 	return (
 		<>
@@ -34,6 +39,7 @@ const AddModal = ({ handleClose }) => {
 			<input
 				name='Калории'
 				type='number'
+				maxLength={4}
 				placeholder='Калории'
 				value={macrosOfDish.Калории}
 				onChange={handleChange}
@@ -41,6 +47,7 @@ const AddModal = ({ handleClose }) => {
 			<input
 				name='Белок'
 				type='number'
+				max={3}
 				placeholder='Белок'
 				value={macrosOfDish.Белок}
 				onChange={handleChange}
@@ -48,6 +55,7 @@ const AddModal = ({ handleClose }) => {
 			<input
 				name='Жиры'
 				type='number'
+				maxLength={3}
 				placeholder='Жиры'
 				value={macrosOfDish.Жиры}
 				onChange={handleChange}
@@ -55,6 +63,7 @@ const AddModal = ({ handleClose }) => {
 			<input
 				name='Углеводы'
 				type='number'
+				maxLength={3}
 				placeholder='Углеводы'
 				value={macrosOfDish.Углеводы}
 				onChange={handleChange}
